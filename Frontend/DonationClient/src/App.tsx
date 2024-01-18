@@ -1,20 +1,20 @@
+// App.tsx
 import React from 'react';
-import './App.css'
+import './App.css';
 import Header from './components/Header';
 import Donors from './components/Donors';
-import DonorForm from './components/DonorForm';
 
 function App() {
-
   return (
     <>
-    <div>
-    <Header/>
-    </div>
-    <Donors/>
-    <DonorForm/>
+      <div>
+        <Header />
+      </div>
+      <div>
+        <Donors />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
