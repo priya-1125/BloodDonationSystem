@@ -1,7 +1,8 @@
 import React from 'react';
-import Donors from './components/Donors';
 import './App.css'
 import Header from './components/Header';
+import Donors from './components/Donors';
+import DonorForm from './components/DonorForm';
 
 function App() {
 
@@ -10,19 +11,10 @@ function App() {
     <div>
     <Header/>
     </div>
-     <Donors/>
+    <Donors/>
+    <DonorForm/>
     </>
   )
 }
 
 export default App
-
-
-// const App: React.FC = () =>
-// {
-//   return (
-//     <Router>
-
-//     </Router>
-//   )
-// }
