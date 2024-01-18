@@ -43,7 +43,7 @@ namespace Blood_Donation.api.Controllers
 
         // PUT: api/Donor/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+            [HttpPut("Update")]
         public async Task<IActionResult> PutDonor(int id, Donor donor)
         {
             if (id != donor.Id)
@@ -80,7 +80,8 @@ namespace Blood_Donation.api.Controllers
             _context.Donor.Add(donor);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDonor", new { id = donor.Id }, donor);
+            return CreatedAtAction(nameof(GetDonor), new { id = donor.Id }, donor);
+
         }
 
         // DELETE: api/Donor/5

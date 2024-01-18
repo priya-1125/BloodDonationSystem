@@ -9,4 +9,5 @@ public class Donor
     public string BloodGroup { get; set;}
 
     public string contact { get; set;}
+
 }
