@@ -47,7 +47,7 @@ namespace Blood_Donation.api.Controllers
         public async Task<IActionResult> PutDonor(int id, Donor donor)
         {
             Console.WriteLine("update");
-            f (id != donor.Id)
+            if (id != donor.Id)
             {
                 return BadRequest();
             }

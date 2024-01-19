@@ -25,7 +25,7 @@ const Donors = () => {
     fetchDonors();
   }, []);
 
-  const handleDonorAdded = (newDonor) => {
+  const handleDonorAdded = (newDonor: any) => {
     setDonors((prevDonors) => [...prevDonors, newDonor]);
   };
 
@@ -40,7 +40,7 @@ const Donors = () => {
     }
   };
 
-  const handleUpdateDonor = (donor) => {
+  const handleUpdateDonor = (donor: React.SetStateAction<null>) => {
     setSelectedDonor(donor);
   };
 
@@ -54,7 +54,7 @@ const Donors = () => {
 
   return (
     <div className="container mx-auto my-8">
-      <h1 className="text-2xl font-bold mb-4">Donors List</h1>
+      <h1 className="text-2xl font-bold mb-4">Donor List</h1>
 
       {/* Search Bar */}
       <div className="mb-4">
@@ -93,12 +93,12 @@ const Donors = () => {
                 >
                   Delete
                 </button>
-                <button
+                {/* <button
                   onClick={() => handleUpdateDonor(donor)}
                   className="bg-blue-500 text-white py-1 px-2 rounded-md"
                 >
                   Update
-                </button>
+                </button> */}
               </td>
             </tr>
           ))}

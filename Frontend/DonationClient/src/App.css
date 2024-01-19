@@ -8,7 +8,7 @@ body {
 }
 
 .app-container {
-  background-image: url('/Users/priyamac/personalprojects/Boold_Donation_Management_System/BloodDonationSystem/Frontend/DonationClient/src/assets/IMG-20240118-WA0009.jpg');
+  background-image: url('/Users/priyamac/personalprojects/Boold_Donation_Management_System/BloodDonationSystem/Frontend/DonationClient/src/assets/IMG-20240118-WA0009_waifu2x_photo_noise1.png');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -23,3 +23,8 @@ body {
   padding: none;
   background-color: black;
 }
+
+@media screen {
+  
+}
+

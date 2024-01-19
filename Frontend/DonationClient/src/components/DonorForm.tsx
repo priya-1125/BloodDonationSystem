@@ -22,14 +22,14 @@ const DonorForm = ({ onDonorAdded, onUpdateDonor, selectedDonor }) => {
     }
   }, [selectedDonor]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const donorData = { name, bloodGroup, contact };
 
     try {
       if (selectedDonor) {
         console.log(`${selectedDonor.id}`);
-          await fetch(`http://localhost:5259/api/Donor/10`, {
+          await fetch(`http://localhost:5259/api/Donor/${selectedDonor.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
