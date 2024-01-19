@@ -43,10 +43,11 @@ namespace Blood_Donation.api.Controllers
 
         // PUT: api/Donor/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-            [HttpPut("Update")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutDonor(int id, Donor donor)
         {
-            if (id != donor.Id)
+            Console.WriteLine("update");
+            f (id != donor.Id)
             {
                 return BadRequest();
             }

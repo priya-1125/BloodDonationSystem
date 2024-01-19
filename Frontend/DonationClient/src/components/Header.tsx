@@ -5,7 +5,7 @@ const Header = () =>
 {
     return (
         <header>
-            <h1>Blood donation app</h1>
+            <h1>Blood donation site</h1>
         </header>
     )
 }
