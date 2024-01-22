@@ -1,14 +1,14 @@
 // src/DonorForm.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 // ... (your existing imports)
 
 // ... (your existing imports)
 
 const DonorForm = ({ onDonorAdded, onUpdateDonor, selectedDonor }) => {
-  const [name, setName] = useState('');
-  const [bloodGroup, setBloodGroup] = useState('');
-  const [contact, setContact] = useState('');
+  const [name, setName] = useState("");
+  const [bloodGroup, setBloodGroup] = useState("");
+  const [contact, setContact] = useState("");
 
   useEffect(() => {
     if (selectedDonor) {
@@ -16,32 +16,32 @@ const DonorForm = ({ onDonorAdded, onUpdateDonor, selectedDonor }) => {
       setBloodGroup(selectedDonor.bloodGroup);
       setContact(selectedDonor.contact);
     } else {
-      setName('');
-      setBloodGroup('');
-      setContact('');
+      setName("");
+      setBloodGroup("");
+      setContact("");
     }
   }, [selectedDonor]);
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     const donorData = { name, bloodGroup, contact };
 
     try {
       if (selectedDonor) {
         console.log(`${selectedDonor.id}`);
-          await fetch(`http://localhost:5259/api/Donor/${selectedDonor.id}`, {
-          method: 'PUT',
+        await fetch(`http://localhost:5259/api/Donor/${selectedDonor.id}`, {
+          method: "PUT",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(donorData),
         });
         onUpdateDonor(selectedDonor.id, donorData);
       } else {
-        const response = await fetch('http://localhost:5259/api/Donor', {
-          method: 'POST',
+        const response = await fetch("http://localhost:5259/api/Donor", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(donorData),
         });
@@ -50,24 +50,29 @@ const DonorForm = ({ onDonorAdded, onUpdateDonor, selectedDonor }) => {
           const addedDonor = await response.json();
           onDonorAdded(addedDonor);
         } else {
-          console.error('Error submitting donor:', response.status);
+          console.error("Error submitting donor:", response.status);
         }
       }
 
-      setName('');
-      setBloodGroup('');
-      setContact('');
+      setName("");
+      setBloodGroup("");
+      setContact("");
     } catch (error) {
-      console.error('Error submitting donor:', error);
+      console.error("Error submitting donor:", error);
     }
   };
 
   return (
-    <div className="container mx-auto my-8">
-      <h1 className="text-3xl font-bold mb-4">{selectedDonor ? 'Update' : 'Add Donor'}</h1>
+    <div className="container mx-auto my-8 " >
+      <h1 className="text-3xl font-bold mb-4">
+        {selectedDonor ? "Update" : "Add Donor"}
+      </h1>
       <form onSubmit={handleSubmit} className="max-w-md">
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+        <div className= "mb-4">
+          <label
+            htmlFor="name"
+            className="text-sm font-medium text-gray-700"
+          >
             Name:
           </label>
           <input
@@ -79,7 +84,10 @@ const DonorForm = ({ onDonorAdded, onUpdateDonor, selectedDonor }) => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="bloodGroup" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="bloodGroup"
+            className="block text-sm font-medium text-gray-700"
+          >
             Blood Group:
           </label>
           <input
@@ -91,7 +99,10 @@ const DonorForm = ({ onDonorAdded, onUpdateDonor, selectedDonor }) => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="contact" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="contact"
+            className="block text-sm font-medium text-gray-700"
+          >
             Contact:
           </label>
           <input
@@ -102,8 +113,11 @@ const DonorForm = ({ onDonorAdded, onUpdateDonor, selectedDonor }) => {
             className="mt-1 p-2 border border-red rounded-md w-full"
           />
         </div>
-        <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md">
-          {selectedDonor ? 'Update' : 'Submit'}
+        <button
+          type="submit"
+          className="bg-blue-500 text-white py-2 px-4 rounded-md"
+        >
+          {selectedDonor ? "Update" : "Submit"}
         </button>
       </form>
     </div>

@@ -56,7 +56,6 @@ const Donors = () => {
     <div className="container mx-auto my-8">
       <h1 className="text-2xl font-bold mb-4">Donor List</h1>
 
-      {/* Search Bar */}
       <div className="mb-4">
         <label htmlFor="bloodGroup" className="block text-sm font-medium text-gray-700">
           Search by Blood Group:
@@ -70,7 +69,6 @@ const Donors = () => {
         />
       </div>
 
-      {/* Display Filtered Donors */}
       <table className="min-w-full bg-white border border-gray-300">
         <thead>
           <tr>
@@ -93,12 +91,6 @@ const Donors = () => {
                 >
                   Delete
                 </button>
-                {/* <button
-                  onClick={() => handleUpdateDonor(donor)}
-                  className="bg-blue-500 text-white py-1 px-2 rounded-md"
-                >
-                  Update
-                </button> */}
               </td>
             </tr>
           ))}
